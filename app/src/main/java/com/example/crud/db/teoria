@@ -1,0 +1,7 @@
+patron singleton para crear una sola base de datos
+
+LiveData es un observable
+
+patron repository reutiliza logica para brindarla  ala vista y poder aislar
+
+patron dao maneja los datos, acciones
