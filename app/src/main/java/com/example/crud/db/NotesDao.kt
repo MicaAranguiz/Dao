@@ -14,7 +14,7 @@ interface NotesDao {
     fun insert(note: Note)
 
     @Update
-    fun update(note : Note)
+    fun update(note: Note)
 
     @Query("DELETE FROM notes WHERE id = :id")
     fun delete(id : Int)

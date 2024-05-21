@@ -1,34 +1,34 @@
 package com.example.crud.repository
 
 import androidx.lifecycle.LiveData
-import com.example.crud.db.Model.Note
-import com.example.crud.db.NotesDao
+import com.example.crud.db.Model.User
+import com.example.crud.db.UsersDao
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class NotesRepository (private val notesDao: NotesDao) {
+class UsersRepository (private val usersDao: UsersDao) {
     private val coroutine = CoroutineScope(Dispatchers.Main)
 
-    fun insert(note:Note) {
+    fun insert(user: User) {
         coroutine.launch(Dispatchers.IO) {
-            notesDao.insert(note)
+            usersDao.insert(user)
         }
     }
 
-    fun update(note:Note){
+    fun update(user: User){
         coroutine.launch(Dispatchers.IO){
-            notesDao.update(note)
+            usersDao.update(user)
         }
     }
 
-    fun getNotes(): LiveData<List<Note>>{
-        return notesDao.getNotes()
+    fun getUsers(): LiveData<List<User>>{
+        return usersDao.getUsers()
     }
 
     fun delete(id : Int){
         coroutine.launch(Dispatchers.IO){
-            notesDao.delete(id)
+            usersDao.delete(id)
         }
     }
 }
