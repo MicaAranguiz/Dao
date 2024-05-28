@@ -20,25 +20,26 @@ abstract class NotesDatabase : RoomDatabase() {
     abstract fun notesDao(): NotesDao
 
     companion object {
+        fun getInstance(context: Context): NotesDatabase {
+            synchronized(this) { //this haciendo referencia a NoteDatabase, varios procesos pueden estar accediendo
+                var instance = INSTANCE
+
+                if (instance == null) { // esta creada?
+                    instance = Room.databaseBuilder(
+                        context.applicationContext, NotesDatabase::class.java,
+                        "notes_database"
+                    ).fallbackToDestructiveMigration() // limpia las versiones anteriores si es que las hubieran
+                        .build()
+
+                    INSTANCE = instance
+                }
+                return instance
+            }
+        }
+
         @Volatile
         private var INSTANCE: NotesDatabase? =
             null //si no hay una instancia creala y si ya hay una tiene que retornarla
     }
 
-    fun getInstance(context: Context): NotesDatabase {
-        synchronized(this) { //this haciendo referencia a NoteDatabase, varios procesos pueden estar accediendo
-            var instance = INSTANCE
-
-            if (instance == null) { // esta creada?
-                instance = Room.databaseBuilder(
-                    context.applicationContext, NotesDatabase::class.java,
-                    "notes_database"
-                ).fallbackToDestructiveMigration() // limpia las versiones anteriores si es que las hubieran
-                    .build()
-
-                INSTANCE = instance
-            }
-            return instance
-        }
-    }
 }

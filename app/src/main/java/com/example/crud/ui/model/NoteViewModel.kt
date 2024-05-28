@@ -4,15 +4,20 @@ import android.app.Application
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.ViewModel
 import com.example.crud.core.TextFieldState
 import com.example.crud.db.Model.Note
 import com.example.crud.db.NotesDatabase
 import com.example.crud.repository.NotesRepository
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 
-class NoteViewModel(application: Application) {
+class NoteViewModel(application: Application) : ViewModel() {
 
     private val _text = mutableStateOf(TextFieldState())
     val text: State<TextFieldState> = _text
+    private var currentId: Int? = null
+
     private var repository: NotesRepository
         get() {
             TODO() //un metodo estatico se puede llamar sin crear la instancia de la clasee
@@ -29,7 +34,25 @@ class NoteViewModel(application: Application) {
         repository = NotesRepository(dao)
 
         all = repository.getNotes()
+    }
 
-
+    private fun load(id: Int?) {
+        viewModelScope.launch {
+            //solamente cuando el foco esté sobre la nota que lo ejecute, sino no
+            if (id != null){
+                repository.findById(id).also { note ->
+                    currentId = note.id
+                    _text.value = text.value.copy(
+                        text = note.text
+                    )
+                }
+            }
+            else{
+                currentId = null
+                _text.value = text.value.copy(
+                    text = "text"
+                )
+            }
+        }
     }
 }

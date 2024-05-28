@@ -31,5 +31,9 @@ class NotesRepository (private val notesDao: NotesDao) {
             notesDao.delete(id)
         }
     }
+
+    suspend fun findById(id: Int):Note{
+        return notesDao.getById(id)
+    }
 }
 
