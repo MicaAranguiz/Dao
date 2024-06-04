@@ -12,6 +12,7 @@ import com.example.crud.db.Model.Note
 import com.example.crud.db.NotesDatabase
 import com.example.crud.repository.NotesRepository
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -27,6 +28,7 @@ class NoteViewModel(application: Application) : ViewModel() {
     val text: State<TextFieldState> = _text
     private var currentId: Int? = null
     var openDialog by mutableStateOf(false)
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     private val _eventFlow = MutableSharedFlow<Event>()
     val eventFlow = _eventFlow.asSharedFlow()
@@ -86,7 +88,7 @@ class NoteViewModel(application: Application) : ViewModel() {
 
                 openDialog = false
                 coroutineScope.launch(Dispatchers.IO){
-                    _eventFlow.emit(Event.save)
+                    _eventFlow.emit(Event.Save)
                 }
             }
 
