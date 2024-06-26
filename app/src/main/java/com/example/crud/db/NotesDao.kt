@@ -27,5 +27,4 @@ interface NotesDao {
     fun getById(id : Int) : Note
     abstract fun all(): LiveData<List<Note>>
 
-
 }

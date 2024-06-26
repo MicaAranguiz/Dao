@@ -1,19 +1,44 @@
 [versions]
+activityComposeVersion = "1.4.0"
 agp = "8.3.2"
 kotlin = "1.9.0"
 coreKtx = "1.13.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
+kotlinxCoroutinesAndroid = "1.7.3"
+kotlinxCoroutinesCore = "1.7.3"
 lifecycleRuntimeKtx = "2.7.0"
 activityCompose = "1.9.0"
 composeBom = "2023.08.00"
+roomCompiler = "2.4.2"
+material = "1.6.8"
+roomCompilerVersion = "2.5.0"
 roomRuntime = "2.6.1"
+roomRuntimeVersion = "2.4.2"
+symbolProcessingApi = "1.9.0-1.0.13"
+ui = "1.6.8"
+uiToolingPreview = "1.6.8"
+annotation = "1.8.0"
 
 [libraries]
+composeUi = { group = "androidx.compose.ui", name = "ui", version = "1.6.8" }
+composeMaterial = { group = "androidx.compose.material", name = "material", version = "1.6.8" }
+composeUiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version = "1.6.8" }
+activityCompose = { group = "androidx.activity", name = "activity-compose", version = "1.9.0" }
+roomRuntime = { group = "androidx.room", name = "room-runtime", version = "2.6.1" }
+roomCompiler = { group = "androidx.room", name = "room-compiler", version = "2.6.1" }
+roomKtx = { group = "androidx.room", name = "room-ktx", version = "2.6.1" }
+kotlinAnnotationProcessing = { group = "org.jetbrains.kotlin", name = "kotlin-annotation-processing", version = "1.8.0" }
+androidx-activity-compose-v140 = { module = "androidx.activity:activity-compose", version.ref = "activityComposeVersion" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+androidx-material = { module = "androidx.compose.material:material", version.ref = "material" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-compiler-v242 = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
+androidx-room-compiler-v250 = { module = "androidx.room:room-compiler", version.ref = "roomCompilerVersion" }
+androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomCompiler" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+androidx-room-runtime-v242 = { module = "androidx.room:room-runtime", version.ref = "roomRuntimeVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
@@ -27,8 +52,15 @@ androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-toolin
 androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutinesAndroid" }
+kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinxCoroutinesCore" }
+symbol-processing-api = { module = "com.google.devtools.ksp:symbol-processing-api", version.ref = "symbolProcessingApi" }
+ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
+ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
+androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+googleDevtoolsKsp = { id = "com.google.devtools.ksp", version = "1.6.10-1.0.2" }
 
