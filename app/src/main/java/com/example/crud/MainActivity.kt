@@ -14,13 +14,10 @@ import com.example.crud.ui.theme.CRUDTheme
 
 
 
-data class Product(val nombre:String, val precio:Int)
+data class Note(val titulo:String, val descripcion:String)
 
-val products: ArrayList<Product> = arrayListOf(
-    Product("Notebook", 700000),
-    Product("TAblet", 7000),
-    Product("Iphone", 150),
-    Product("Monitor", 15000000),
+val notes: ArrayList<Note> = arrayListOf(
+    Note("Notebook", "Notebook"),
 )
 
 class MainActivity : ComponentActivity() {
@@ -33,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    HomeScreen(products)
+                    HomeScreen(notes)
                 }
             }
         }
@@ -45,6 +42,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingPreview() {
     CRUDTheme {
-        HomeScreen(products)
+        HomeScreen(notes)
     }
 }
