@@ -14,10 +14,11 @@ import com.example.crud.ui.theme.CRUDTheme
 
 
 
-data class Note(val titulo:String, val descripcion:String)
+data class Note(val nombre:String, val descripcion:String)
 
 val notes: ArrayList<Note> = arrayListOf(
-    Note("Ayuda", "No anda"),
+    Note("Notebook", "Ni idea"),
+
 )
 
 class MainActivity : ComponentActivity() {
