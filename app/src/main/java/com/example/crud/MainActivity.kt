@@ -17,7 +17,7 @@ import com.example.crud.ui.theme.CRUDTheme
 data class Note(val titulo:String, val descripcion:String)
 
 val notes: ArrayList<Note> = arrayListOf(
-    Note("Notebook", "Notebook"),
+    Note("Ayuda", "No anda"),
 )
 
 class MainActivity : ComponentActivity() {

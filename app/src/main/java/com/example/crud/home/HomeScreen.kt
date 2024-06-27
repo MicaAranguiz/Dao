@@ -17,12 +17,12 @@ import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TextField
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.foundation.lazy.LazyColumn
-import com.example.crud.Product
+import com.example.crud.Note
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(products: List<Product>) {
+fun HomeScreen(notes: List<Note>) {
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -31,20 +31,20 @@ fun HomeScreen(products: List<Product>) {
 
     ) {
         Text(
-            text = "Mis Productos",
+            text = "Mis Notas",
             fontSize = 20.sp,
             fontWeight = FontWeight.SemiBold
         )
         TextField(
             value = "",
             onValueChange = {},
-            placeholder = { Text(text = "Nombre Producto") })
+            placeholder = { Text(text = "Nombre nota") })
         TextField(
             value = "",
             onValueChange = {},
-            placeholder = { Text(text = "Precio") })
+            placeholder = { Text(text = "descripcion") })
         Button(onClick = { /*TODO*/ }) {
-            Text(text = "Agregar Producto")
+            Text(text = "Agregar Nota")
         }
         LazyColumn(modifier = Modifier.fillMaxWidth()){
 

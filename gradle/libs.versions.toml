@@ -20,6 +20,8 @@ symbolProcessingApi = "1.9.0-1.0.13"
 ui = "1.6.8"
 uiToolingPreview = "1.6.8"
 annotation = "1.8.0"
+runtimeLivedata = "1.6.8"
+lifecycleViewmodelComposeAndroid = "2.8.2"
 
 [libraries]
 composeUi = { group = "androidx.compose.ui", name = "ui", version = "1.6.8" }
@@ -58,6 +60,8 @@ symbol-processing-api = { module = "com.google.devtools.ksp:symbol-processing-ap
 ui = { module = "androidx.compose.ui:ui", version.ref = "ui" }
 ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "uiToolingPreview" }
 androidx-annotation = { group = "androidx.annotation", name = "annotation", version.ref = "annotation" }
+androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtimeLivedata" }
+androidx-lifecycle-viewmodel-compose-android = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose-android", version.ref = "lifecycleViewmodelComposeAndroid" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

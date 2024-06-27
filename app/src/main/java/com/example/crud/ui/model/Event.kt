@@ -9,6 +9,7 @@ sealed class Event {
     data class Delete(val id: Int): Event()
 
     data class Load (val id:Int?): Event()
+
 }
 
 
